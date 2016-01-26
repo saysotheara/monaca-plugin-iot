@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    id="monaca-plugin-iot"
+    version="1.0.0">
+
+    <name>DeviceConnect</name>
+    <description>DeviceConnect WebAPI is WebAPI which operates as a virtual server on a smart phone. It can use easily various wearable devices and an IoT device by unific description from a web browser or an application.</description>
+    <license>MIT</license>
+
+    <repo>https://github.com/saysotheara/cordova-plugin-iot.git</repo>
+    <issue>https://github.com/saysotheara/cordova-plugin-iot/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/deviceConnect.js" name="DeviceConnect">
+        <clobbers target="monaca.plugin.deviceConnect" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DeviceConnect">
+                <param name="android-package" value="monaca.plugin.DeviceConnect" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/monaca/plugin/DeviceConnect.java" target-dir="src/monaca/plugin" />
+    </platform>
+
+</plugin>
